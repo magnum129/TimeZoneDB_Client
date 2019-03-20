@@ -24,7 +24,7 @@ SOFTWARE.
 #pragma once
 #include <ESP8266WiFi.h>
 #include <TimeLib.h> // https://github.com/PaulStoffregen/Time 
-#include <ArduinoJson.h>
+#include "libs/ArduinoJson/ArduinoJson.h"
 
 class TimeDB
 {
@@ -36,6 +36,7 @@ class TimeDB
     String getMonthName();
     String getAmPm();
     String zeroPad(int number);
+    String getError();
 
   private:
     const char* servername = "api.timezonedb.com";  // remote server we will connect to
@@ -43,4 +44,5 @@ class TimeDB
     String myApiKey;
     String myLat;
     String myLon;
+    String errorMessage;
 };
